@@ -27,12 +27,15 @@ function WeatherHome(props) {
       <>
         <div className="location-box">
           <li className="location">
-            city: {search.name}, {search.sys.country}
+            Location: {search.name}, {search.sys.country}
           </li>
         </div>
         <div className="location-box">
+          <li className="location">Weather: {search.weather[0].main}</li>
+          <li className="location">
+            Weather Description: {search.weather[0].description}
+          </li>
           <li className="location">Temperature: {search.main.temp}</li>
-          <li className="location">Max Temperature: {search.main.temp_max}</li>
           <li className="location">Max Temperature: {search.main.temp_max}</li>
         </div>
       </>
