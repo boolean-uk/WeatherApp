@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   //   const [weather, setWeather] = useState([]);
-  const [search, setSearch] = useState(""); // this can go directly in the form for the search bar
+  const [search, setSearch] = useState(null); // this can go directly in the form for the search bar
   const [currentLocation, setCurrentLocation] = useState("");
+  const [currentCity, setCurrentCity] = useState("");
 
   const api = {
     key: "cd51bfb08430241168a813edfe9e9d8f",
@@ -18,22 +19,22 @@ export default function App() {
 
   useEffect(() => {
     //   if currentLocation is not empty -> then do a fetch to the API
-    console.log(search);
-    if (currentLocation !== "") {
+    // console.log(search);
+    if (currentCity !== "") {
       // fetch
-      const url = `${api.base}weather?q=${currentLocation}&units=metric&APPID=${api.key}`;
+      const url = `${api.base}weather?q=${currentCity}&units=metric&APPID=${api.key}`;
       console.log(url);
       fetch(url)
         .then((res) => res.json())
-        .then((result) => {
-          setSearch(result);
-          console.log(search);
+        .then((data) => {
+          setSearch(data);
           //   setSearch("");
         });
     }
-  }, [currentLocation]);
+  }, [currentCity]);
 
-  console.log(currentLocation);
+  console.log(currentCity);
+  console.log(search);
 
   return (
     <>
@@ -45,6 +46,8 @@ export default function App() {
         // SearchWeatherLocation={SearchWeatherLocation}
         currentLocation={currentLocation}
         setCurrentLocation={setCurrentLocation}
+        // currentCity={currentCity}
+        setCurrentCity={setCurrentCity}
       />
       <main></main>
     </>
