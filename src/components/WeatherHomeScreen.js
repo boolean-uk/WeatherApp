@@ -45,32 +45,28 @@ function WeatherHome(props) {
     );
   }
 
-//   function coverChange() {
-//     if (typeof search === null) {
-//       return "cover default";
-//     } else if (typeof search !== null) {
-//       if (search.main > 10) {
-//         return "cover warm";
-//       } else return "cover";
-//     }
-//   }
+  //   function coverChange() {
+  //     if (typeof search === null) {
+  //       return "cover default";
+  //     } else if (typeof search !== null) {
+  //       if (search.main > 10) {
+  //         return "cover warm";
+  //       } else return "cover";
+  //     }
+  //   }
 
-//   let cover = coverChange();
+  //   let cover = coverChange();
 
   return (
     <header>
       <div
-        className=
-        // {
-          //   typeof search === null
-          //     ? search.main.temp > 40
-          //       ? "cover warm"
-          //       : "cover"
-          //     : "cover"
-          //   coverChange()
-          //   cover
-          "cover default"
-        // }
+        className=//     ? search.main.temp > 40 //   typeof search === null // {
+        //       ? "cover warm"
+        //       : "cover"
+        //     : "cover"
+        //   coverChange()
+        //   cover
+        {search === null ? "cover default" : "cover"}
       >
         <div className="space-box">
           <h1> The Mr.Weather App </h1>
@@ -92,15 +88,11 @@ function WeatherHome(props) {
                 // onKeyPress={SearchWeatherLocation(search)}
               />
             </div>
-            <button type="submit">
-              SUBMIT
-            </button>
+            <button type="submit">SUBMIT</button>
           </form>
         </div>
         <div>
-          <ul className="cards">
-            {searchData}
-          </ul>
+          <ul className="cards">{searchData}</ul>
         </div>
       </div>
     </header>
