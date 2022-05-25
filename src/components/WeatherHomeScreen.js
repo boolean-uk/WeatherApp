@@ -1,4 +1,3 @@
-// import e from "express";
 import "./styles/style.css";
 
 function WeatherHome(props) {
@@ -25,35 +24,63 @@ function WeatherHome(props) {
   if (search !== null) {
     searchData = (
       <>
-        <div className="location-box">
-          <li className="location">
-            Location: {search.name}, {search.sys.country}
-          </li>
-        </div>
-        <div className="location-box">
-          <li className="location">Weather: {search.weather[0].main}</li>
-          <li className="location">
-            Weather Description: {search.weather[0].description}
-          </li>
-          <li className="location">Temperature: {search.main.temp}</li>
-          <li className="location">Max Temperature: {search.main.temp_max}</li>
+        <div className="card">
+          <div className="location-box">
+            <li className="location">
+              Location: {search.name}, {search.sys.country}
+            </li>
+          </div>
+          <div className="location-box">
+            <li className="location">Weather: {search.weather[0].main}</li>
+            <li className="location">
+              Weather Description: {search.weather[0].description}
+            </li>
+            <li className="location">Temperature: {search.main.temp}</li>
+            <li className="location">
+              Max Temperature: {search.main.temp_max}
+            </li>
+          </div>
         </div>
       </>
     );
   }
 
+//   function coverChange() {
+//     if (typeof search === null) {
+//       return "cover default";
+//     } else if (typeof search !== null) {
+//       if (search.main > 10) {
+//         return "cover warm";
+//       } else return "cover";
+//     }
+//   }
+
+//   let cover = coverChange();
+
   return (
     <header>
-      <div>
-        <div className="search-box">
+      <div
+        className=
+        // {
+          //   typeof search === null
+          //     ? search.main.temp > 40
+          //       ? "cover warm"
+          //       : "cover"
+          //     : "cover"
+          //   coverChange()
+          //   cover
+          "cover default"
+        // }
+      >
+        <div className="space-box">
           <h1> The Mr.Weather App </h1>
         </div>
-        <div className="search-box">
+        <div className="space-box">
           <h2>Today's Weather</h2>
         </div>
         <div className="container">
           <form onSubmit={handleSubmit}>
-            <div className="search-box">
+            <div className="space-box">
               <input
                 type="text"
                 placeholder="Find Your City"
@@ -66,15 +93,13 @@ function WeatherHome(props) {
               />
             </div>
             <button type="submit">
-              <span>SUBMIT</span>
+              SUBMIT
             </button>
           </form>
         </div>
-        <div className="container">
-          <ul>
+        <div>
+          <ul className="cards">
             {searchData}
-            {/* {search !== null && <li>{search.name}</li>} */}
-            {/* {<li>MaxTemperature: {search.main.temp_max} </li>} */}
           </ul>
         </div>
       </div>
